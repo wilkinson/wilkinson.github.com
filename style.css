@@ -1,0 +1,14 @@
+/*  CSS stylesheet  */
+
+/*  style.css ~~
+*   This contains markup instructions for project documentation and writeup.
+*                                                           ~~ SRW, 29 Oct 2010
+*/
+
+body {
+    color: blue;
+    font-family: Georgia, serif;
+    margin: 1in;
+}
+
+/*  vim:set syntax=css:  */
