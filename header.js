@@ -5,7 +5,7 @@
 //                                                          ~~ SRW, 29 Oct 2010
 
 if (this.window === undefined) {
-    throw "this demonstration has not been mplemented for headless contexts.";
+    throw "This demonstration has not been mplemented for headless contexts.";
 }
 
 var load = function () {
@@ -19,7 +19,7 @@ var load = function () {
 
     print = function () {
         var args = Array.prototype.slice.call(arguments),
-            sink = document.getElementById('output-log');
+            sink = document.getElementById('sink');
         for (i = 0; i < args.length; i += 1) {
             sink.innerHTML += '<div>' + args[i] + '</div>';
         }

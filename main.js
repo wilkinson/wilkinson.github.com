@@ -6,7 +6,7 @@
 //                                                          ~~ SRW, 29 Oct 2010
 
 function main() {
-    print("Hello world!");
+    print("Welcome to my wonderful GitHub page. Content is forthcoming :-)");
     return 0;
 }
 

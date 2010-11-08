@@ -6,9 +6,11 @@
 */
 
 body {
-    color: blue;
+    background-color: #CCCCCC;
+    color: #002469;
     font-family: Georgia, serif;
-    margin: 1in;
+    margin: 20%;
+    text-align: center;
 }
 
 /*  vim:set syntax=css:  */
