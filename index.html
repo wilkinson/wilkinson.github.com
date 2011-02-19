@@ -1,25 +1,36 @@
 <!DOCTYPE HTML>
 <!--
     index.html ~~
-    This is my user page for GitHub.com :-)
-                                                            ~~ SRW, 29 Oct 2010
+                                                            ~~ SRW, 18 Feb 2011
 -->
 <html>
     <head>
-        <meta charset="utf-8" />
-        <title>GitHub User Page -- Sean Wilkinson</title>
-        <link rel="stylesheet" href="style.css" />
+        <meta charset="utf-8"/>
+        <meta name="author" content="Sean Wilkinson"/>
+        <title>User Page: Sean Wilkinson</title>
+        <link rel="stylesheet" href="style.css"/>
+        <script>
+            window.onload = function () {
+                "use strict";
+                var args, i, key, param, txt, val;
+                param = {};
+                if (location.search.length > 0) {
+                    txt = location.search.slice(1);
+                    args = txt.match(/(\S+\=\S+)\&?/g)[0].split('&');
+                    for (i = 0; i < args.length; i += 1) {
+                        key = args[i].split('=')[0];
+                        val = args[i].replace(key + "=", "");
+                        param[key] = JSON.parse(val);
+                    }
+                }
+                if (typeof main === 'function') {
+                    main(param);
+                }
+            };
+        </script>
     </head>
-
-    <body onload="main();">
-
-        <section id="sink">
-
-            <script src="header.js"></script>
-            <script src="main.js"></script>
-
-        </section>
-
+    <body>
+        <noscript>This page requires JavaScript to be enabled.</noscript>
+        <script src="game-of-life.js"></script>
     </body>
-
 </html>

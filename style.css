@@ -1,16 +1,30 @@
 /*  CSS stylesheet  */
 
 /*  style.css ~~
-*   This contains markup instructions for project documentation and writeup.
-*                                                           ~~ SRW, 29 Oct 2010
+*                                                           ~~ SRW, 18 Feb 2011
 */
 
 body {
     background-color: #CCCCCC;
-    color: #002469;
+    color: black;
     font-family: Georgia, serif;
-    margin: 20%;
+    font-size: 20pt;
     text-align: center;
 }
 
-/*  vim:set syntax=css:  */
+canvas {
+    border: 1px solid black;
+}
+
+noscript {
+    color: red;
+    font-size: 200%;
+    font-weight: bold;
+    text-align: center;
+}
+
+.mono {
+    font-family: Menlo, AndaleMono, monospace;
+}
+
+/*  vim:set syntax=css: */
