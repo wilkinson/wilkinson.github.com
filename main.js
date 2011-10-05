@@ -1,7 +1,7 @@
 //- JavaScript source code
 
 //- game-of-life.js ~~
-//                                                          ~~ SRW, 18 Feb 2011
+//                                                      ~~ (c) SRW, 18 Feb 2011
 
 var main;
 

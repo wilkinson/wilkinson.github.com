@@ -1,30 +1,77 @@
 /*  CSS stylesheet  */
 
 /*  style.css ~~
-*                                                           ~~ SRW, 18 Feb 2011
-*/
+ *                                                      ~~ (c) SRW, 05 Oct 2011
+ */
 
 body {
     background-color: #CCCCCC;
     color: black;
     font-family: Georgia, serif;
-    font-size: 20pt;
+    font-size: 12pt;
+    margin: 1in;
     text-align: center;
+}
+
+a {
+    border-bottom: 1px dotted;
+    color: black;
+    text-decoration: none;
+}
+
+a:hover {
+    color: blue;
 }
 
 canvas {
     border: 1px solid black;
 }
 
-noscript {
-    color: red;
-    font-size: 200%;
+div {
+    margin-bottom: 1em;
+    margin-top: 1em;
+    text-align: justify;
+}
+
+figcaption {
     font-weight: bold;
+}
+
+figure {
     text-align: center;
 }
 
-.mono {
-    font-family: Menlo, AndaleMono, monospace;
+figure img[src$=".png"] {
+    background-color: white;
+}
+
+figure img[src$=".svg"] {
+    background-color: white;
+}
+
+footer {}
+
+header {}
+
+iframe {
+    height: 75%;
+    width: 100%;
+}
+
+noscript {
+    color: red;
+    font-size: 200%;
+    text-align: center;
+}
+
+pre {
+    text-align: left;
+}
+
+textarea {
+    font-family: Courier, monospace;
+    font-size: 12pt;
+    text-align: left;
 }
 
 /*  vim:set syntax=css: */
