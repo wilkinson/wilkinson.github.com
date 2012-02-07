@@ -3,40 +3,45 @@
     index.html ~~
                                                             ~~ SRW, 18 Feb 2011
 -->
-<html>
-    <head>
-        <meta charset="utf-8"/>
-        <meta name="author" content="Sean Wilkinson"/>
-        <title>User Page: Sean Wilkinson</title>
-        <link rel="stylesheet" href="style.css"/>
-        <link rel="shortcut icon" href="https://github.com/favicon.ico"/>
-        <script>
-            window.onload = function () {
-                "use strict";
-                var args, i, key, param, txt, val;
-                param = {};
-                if (location.search.length > 0) {
-                    txt = location.search.slice(1);
-                    args = txt.match(/(\S+\=\S+)\&?/g)[0].split('&');
-                    for (i = 0; i < args.length; i += 1) {
-                        key = args[i].split('=')[0];
-                        val = args[i].replace(key + "=", "");
-                        param[key] = JSON.parse(val);
-                    }
+<html lang="en">
+  <head>
+    <meta charset="utf-8"/>
+    <meta name="author" content="Sean Wilkinson"/>
+    <title>User Page: Sean Wilkinson</title>
+    <link rel="stylesheet" href="./print.css" media="print"/>
+    <link rel="stylesheet" href="./screen.css" media="screen"/>
+    <link rel="shortcut icon" href="https://github.com/favicon.ico"/>
+    <script>
+        window.onload = function () {
+            'use strict';
+            var args, i, key, param, txt, val;
+            param = {};
+            if (location.search.length > 0) {
+                txt = location.search.slice(1);
+                args = txt.match(/(\S+\=\S+)\&?/g)[0].split('&');
+                for (i = 0; i < args.length; i += 1) {
+                    key = args[i].split('=')[0];
+                    val = args[i].replace(key + "=", "");
+                    param[key] = JSON.parse(val);
                 }
-                if (typeof main === 'function') {
-                    main(param);
-                }
-            };
-        </script>
-    </head>
-    <body>
-        <noscript>This page requires JavaScript to be enabled.</noscript>
-        <div style="text-align: center">
-            <a href="https://github.com/wilkinson">Home</a>
-            <a href="./quanah/">Quanah</a>
-            <a href="./qmachine/">Qmachine</a>
-        </div>
-        <script src="main.js"></script>
-    </body>
+            }
+            if (typeof main === 'function') {
+                main(param);
+            }
+            return;
+        };
+    </script>
+  </head>
+  <body>
+    <noscript>This page requires JavaScript to be enabled.</noscript>
+    <h1>Sean Wilkinson</h1>
+    <div id="navcontainer">
+      <ul id="navlist">
+        <li><a href="https://github.com/wilkinson">Profile</a></li>
+        <li><a href="http://wilkinson.github.com/quanah/">Quanah</a></li>
+        <li><a href="http://wilkinson.github.com/qmachine/">Qmachine</a></li>
+      </ul>
+    </div>
+    <script src="main.js"></script>
+  </body>
 </html>
