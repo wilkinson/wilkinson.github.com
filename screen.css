@@ -1,22 +1,8 @@
 /*  CSS style sheet  */
 
 /*  screen.css ~~
- *
- *  NOTE: I need to figure out some fallbacks for IE ...
- *
- *                                                      ~~ (c) SRW, 07 Feb 2012
+ *                                                      ~~ (c) SRW, 23 May 2012
  */
-
-body {
-
-    background-color: #CCCCCC;
-    color: black;
-    font-family: Georgia, serif;
-    font-size: 12pt;
-    margin: 1in;
-    text-align: center;
-
-}
 
 a {
 
@@ -29,6 +15,17 @@ a {
 a:hover {
 
     color: blue;
+
+}
+
+body {
+
+    background-color: #CCCCCC;
+    color: black;
+    font-family: Georgia, serif;
+    font-size: 12pt;
+    margin: 1in;
+    text-align: center;
 
 }
 
