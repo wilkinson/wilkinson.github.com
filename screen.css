@@ -109,14 +109,6 @@ textarea {
 
 }
 
-ul {
-
-    list-style-type: none;
-    padding: 0;
-    margin: 0;
-
-}
-
 #github_ribbon {
 
  /* There is a much fancier version available at http://goo.gl/CSWv3. */
@@ -163,6 +155,9 @@ ul {
 
 ul.navlist {
 
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
     text-align: center;
 
 }
