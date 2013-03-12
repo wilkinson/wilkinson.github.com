@@ -1,7 +1,8 @@
-/*  CSS style sheet  */
+/*- CSS style sheet */
 
-/*  screen.css ~~
+/*- screen.css ~~
  *                                                      ~~ (c) SRW, 23 May 2012
+ *                                                  ~~ last updated 12 Mar 2013
  */
 
 a {
@@ -25,7 +26,7 @@ body {
     font-family: Georgia, serif;
     font-size: 12pt;
     margin: 1in;
-    text-align: center;
+    text-align: left;
 
 }
 
@@ -67,10 +68,6 @@ figure img[src$=".svg"] {
 
 }
 
-footer {}
-
-header {}
-
 iframe {
 
     height: 75%;
@@ -103,8 +100,8 @@ textarea {
 ul {
 
     list-style-type: none;
-    padding: 0px;
-    margin: 0px;
+    padding: 0;
+    margin: 0;
 
 }
 
@@ -152,13 +149,13 @@ ul {
 
 }
 
-#navlist {
+ul.navlist {
 
     text-align: center;
 
 }
 
-#navlist li {
+ul.navlist li {
 
     display: inline;
     list-style-type: none;
@@ -166,9 +163,15 @@ ul {
 
 }
 
-#navlist :first-child {
+ul.navlist :first-child {
 
-    padding-left: 0px;
+    padding-left: 0;
+
+}
+
+.centered {
+
+    text-align: center;
 
 }
 
