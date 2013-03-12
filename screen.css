@@ -68,6 +68,12 @@ figure img[src$=".svg"] {
 
 }
 
+h1 {
+
+    text-align: center;
+
+}
+
 iframe {
 
     height: 75%;
