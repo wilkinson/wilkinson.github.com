@@ -2,23 +2,23 @@
 
 //- game-of-life.js ~~
 //                                                      ~~ (c) SRW, 18 Feb 2011
+//                                                  ~~ last updated 13 Aug 2013
 
-var main;
+function main(argv) {
+    'use strict';
 
-main = function (argv) {
-    "use strict";
+ // Pragmas
 
- // Private variable declarations
+    /*jslint browser: true, indent: 4, maxlen: 80 */
 
-    var canvas, ctx, init, m, param, show, update;
+ // Declarations
 
- // Alias the "Math" object so I can replace it with my own later if desired.
+    var args, canvas, ctx, init, show, update;
 
-    m = Math;
+ // Definitions
 
- // Simulation parameters (will be overridden by location.search parameters)
-
-    param = {
+    args = {
+     // These simulation parameters can be configured via `location.search`.
         rows:   (typeof argv.rows === 'number')     ?   argv.rows   :   50,
         cols:   (typeof argv.cols === 'number')     ?   argv.cols   :   50,
         pxls:   (typeof argv.pxls === 'number')     ?   argv.pxls   :   10,
@@ -26,36 +26,32 @@ main = function (argv) {
         wrap:   (typeof argv.wrap === 'boolean')    ?   argv.wrap   :   true
     };
 
- // Initialize a graphics device
-
     canvas = document.createElement('canvas');
-    canvas.width = param.cols * param.pxls;
-    canvas.height = param.rows * param.pxls;
+    canvas.width = args.cols * args.pxls;
+    canvas.height = args.rows * args.pxls;
     document.body.appendChild(canvas);
 
     ctx = canvas.getContext('2d');
 
- // Initialization mechanism for populating a cell grid randomly
-
     init = function (p) {
+     // This function populates a cell grid randomly.
         var grid, i, j;
         grid = [];
-        for (i = 0; i < param.rows; i += 1) {
+        for (i = 0; i < args.rows; i += 1) {
             grid[i] = [];
-            for (j = 0; j < param.cols; j += 1) {
-                grid[i][j] = (m.random() < p) ? 1 : 0;
+            for (j = 0; j < args.cols; j += 1) {
+                grid[i][j] = (Math.random() < p) ? 1 : 0;
             }
         }
         return grid;
     };
 
- // Printing mechanism
-
     show = function (grid) {
+     // This function paints the next generation to the canvas.
         var i, j, size;
-        size = param.pxls;
-        for (i = 0; i < param.rows; i += 1) {
-            for (j = 0; j < param.cols; j += 1) {
+        size = args.pxls;
+        for (i = 0; i < args.rows; i += 1) {
+            for (j = 0; j < args.cols; j += 1) {
                 if (grid[i][j] === 1) {
                     ctx.fillRect(size * j, size * i, size, size);
                 } else {
@@ -63,34 +59,37 @@ main = function (argv) {
                 }
             }
         }
+        return;
     };
 
- // Update mechanism
-
     update = function (curr) {
+     // This function computes the next generation from the current one.
         var i, j, neighbors, next;
         neighbors = function (i, j) {
+         // This function computes the number of living neighbors for a cell
+         // at position (i, j).
             var coords, count, index, row, col;
             coords = [
                 [i - 1, j - 1], [i - 1, j], [i - 1, j + 1],
-                [i    , j - 1], /*itself*/  [i    , j + 1],
+                [i,     j - 1], /*itself*/  [i,     j + 1],
                 [i + 1, j - 1], [i + 1, j], [i + 1, j + 1]
             ];
             count = 0;
             for (index = 0; index < coords.length; index += 1) {
                 row = coords[index][0];
                 col = coords[index][1];
-                if (param.wrap === true) {
-                    if ((row < 0) || (row === param.rows)) {
-                        row = (row < 0) ? param.rows - 1 : 0;
+                if (args.wrap === true) {
+                 // Implement wraparound boundary conditions.
+                    if ((row < 0) || (row === args.rows)) {
+                        row = (row < 0) ? args.rows - 1 : 0;
                     }
-                    if ((col < 0) || (col === param.cols)) {
-                        col = (col < 0) ? param.cols - 1 : 0;
+                    if ((col < 0) || (col === args.cols)) {
+                        col = (col < 0) ? args.cols - 1 : 0;
                     }
                     count += curr[row][col];
                 } else {
-                    if (0 <= row && row < param.rows) {
-                        if (0 <= col && col < param.cols) {
+                    if (0 <= row && row < args.rows) {
+                        if (0 <= col && col < args.cols) {
                             count += curr[row][col];
                         }
                     }
@@ -99,8 +98,8 @@ main = function (argv) {
             return count;
         };
         next = init(0);                 //- creates a "zeros" array :-)
-        for (i = 0; i < param.rows; i += 1) {
-            for (j = 0; j < param.cols; j += 1) {
+        for (i = 0; i < args.rows; i += 1) {
+            for (j = 0; j < args.cols; j += 1) {
                 switch (neighbors(i, j)) {
                 case 2:
                     next[i][j] = (curr[i][j] === 1) ? 1 : 0;
@@ -115,13 +114,18 @@ main = function (argv) {
         }
         curr = next;
         show(curr);
-        setTimeout(update, (1000 / param.freq), curr);
+        setTimeout(update, (1000 / args.freq), curr);
+        return;
     };
 
  // Invocations
 
     update(init(0.6));
 
-};
+ // That's all, folks!
+
+    return;
+
+}
 
 //- vim:set syntax=javascript:
